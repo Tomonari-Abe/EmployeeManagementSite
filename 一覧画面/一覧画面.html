@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <title>社員情報一覧</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+            }
+            h1 {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            .register-link {
+                text-align: right;
+                margin-bottom: 20px;
+            }
+            .register-link button {
+                background-color: orange;
+                border: none;
+                padding: 10px 20px;
+                color: white;
+                cursor: pointer;
+            }
+            .register-link button a {
+                text-decoration: none;
+                color: white;
+            }
+            table.input-items {
+             /* display: block; */
+                flex-direction: column;
+                margin-left: 20px;
+                margin-right: 20px;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                border: 1px solid #333;
+            }
+            table{
+                /* display: flex-box; */
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 20px;
+            }
+            th, td {
+                border: 1px solid black;
+                padding: 10px;
+                text-align: left;
+                white-space: nowrap; /* テーブルセル内の余分な空白を削除 */
+            }
+            th {
+                background-color: #f2f2f2;
+            }
+            .edit-button {
+                background-color: orange;
+                border: none;
+                padding: 10px 20px;
+                color: white;
+                cursor: pointer;
+            }
+            .transportation {
+                text-align: center;
+            }
+            .transportation button {
+                background-color: orange;
+                border: none;
+                padding: 10px 20px;
+                color: white;
+                cursor: pointer;
+                margin: 10px;
+            }
+            .transportation button a {
+                text-decoration: none;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>社員情報一覧</h1>
+        <div class="register-link">
+            <button type="button"><a href="../登録画面/登録画面.html">登録＞ </a></button>
+        </div>
+        <table >
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>生年月日</th>
+                    <th>入社日</th>
+                    <th>所属部門</th>
+                    <th>退社日</th>
+                    <th>編集</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>山田 太郎</td>
+                    <td>1980-01-01</td>
+                    <td>2020-04-01</td>
+                    <td>営業部</td>
+                    <td></td>
+                    <td><button type="button" class="edit-button"><a href="../更新画面/更新画面.html">編集</a></button></td>
+                </tr>
+                <tr>
+                    <td>鈴木 花子</td>
+                    <td>1990-05-15</td>
+                    <td>2019-07-15</td>
+                    <td>開発部</td>
+                    <td></td>
+                    <td><button type="button" class="edit-button"><a href="../更新画面/更新画面.html">編集</a></button></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="transportation">
+            <button type="button"><a href="../一覧画面/一覧画面.html">前へ</a></button>
+            <button type="button"><a href="../一覧画面/一覧画面.html">次へ</a></button>
+        </div>
+    </body>
+</html>
