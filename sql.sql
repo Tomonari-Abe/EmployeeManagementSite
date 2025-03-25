@@ -1,13 +1,16 @@
--- 所属部門トランテーブル
-CREATE TABLE 所属部門トラン (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    社員ID INT NOT NULL,
-    部門ID INT NOT NULL,
-    所属開始日 DATE NOT NULL,
-    作成日時 TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    更新日時 TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (社員ID) REFERENCES 社員マスタ(ID),
-    FOREIGN KEY (部門ID) REFERENCES 部門マスタ(ID)
+INSERT INTO 社員マスタ(
+   姓,
+   名,
+   生年月日,
+   入社日
+
+   ) VaLUES(
+   山田,
+   太郎,
+   1980-01-01,
+   2020-04-01
+
+   
 );
 
 
