@@ -77,9 +77,8 @@ public class RegistrationScreen extends HttpServlet {
         out.println("    </body>                                                                                                                    ");
         out.println("    <footer>                                                                                                                   ");
         out.println("                                                                                                                               ");
-        out.println("        <button type=\"button\" class=\"register-button\"><a href=\"../登録確認画面/登録確認画面.html\">確認</a></button>      ");
+        out.println("        <button type=\"button\" class=\"register-button\"><a href=\"./CheckRegistrationScreen\">確認</a></button>      ");
         out.println("    </footer>                                                                                                                  ");
-        out.println("                                                                                                                               ");
         out.println("</html> "                                                                                                                      );
         // TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());

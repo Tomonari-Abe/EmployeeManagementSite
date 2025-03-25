@@ -5,6 +5,12 @@ public class RegistrationDto {
     // ----------------------------------------------------------------
     // フィールド
     // ----------------------------------------------------------------
+    private int DepartmentID;
+
+
+    private int EmployeeID;
+
+
     private String last_name;
     private String first_name;
     private String birth_date;
@@ -51,6 +57,21 @@ public class RegistrationDto {
 
     public void setDepartment (String department) {
         this.department = department;
+    }
+    public int getDepartmentID () {
+        return DepartmentID;
+    }
+
+    public void setDepartmentID (int departmentID) {
+        DepartmentID = departmentID;
+    }
+
+    public int getEmployeeID () {
+        return EmployeeID;
+    }
+
+    public void setEmployeeID (int employeeID) {
+        EmployeeID = employeeID;
     }
 
 }

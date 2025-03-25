@@ -75,7 +75,7 @@ public class CheckUpdateScreen extends HttpServlet {
         out.println("        </form>                                                                                                            ");
         out.println("    </body>                                                                                                                ");
         out.println("    <footer>                                                                                                               ");
-        out.println("        <button type=\"button\" class=\"update-button\"><a href=\"../一覧画面/一覧画面.html\">更新</a></button>            ");
+        out.println("        <button type=\"button\" class=\"update-button\"><a href=\"./ListScreen\">更新</a></button>            ");
         out.println("    </footer>                                                                                                              ");
         out.println("</html>                                                                                                                    ");
 

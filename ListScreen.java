@@ -38,8 +38,8 @@ public class ListScreen extends HttpServlet {
 
         // セッションからユーザーデータを取得
         HttpSession session = request.getSession ();
-        RegistrationDto userInfoOnSession =
-        (RegistrationDto)session.getAttribute("LOGIN_INFO");
+        //RegistrationDto userInfoOnSession =
+        //(RegistrationDto)session.getAttribute("LOGIN_INFO");
 
         // ログイン状態によって表示画面を振り分ける
         // if (userInfoOnSession != null) {
@@ -152,7 +152,7 @@ public class ListScreen extends HttpServlet {
         out.println (
                 "               text-align: left;                                                                                                               ");
         out.println (
-                "               white-space: nowrap; /* テーブルセル内の余分な空白を削除 */                                                                     ");
+                "               white-space: nowrap;                                                                            ");
         out.println (
                 "                   }                                                                                                                           ");
         out.println (
@@ -210,7 +210,7 @@ public class ListScreen extends HttpServlet {
         out.println (
                 "        <div class=\"register-link\">                                                                                                          ");
         out.println (
-                "            <button type=\"button\"><a href=\"../登録画面/登録画面.html\">登録＞ </a></button>                                                 ");
+                "            <button type=\"button\"><a href=\"./RegistrationScreen\">登録＞ </a></button>                                                 ");
         out.println (
                 "        </div>                                                                                                                                 ");
         out.println (
@@ -250,11 +250,11 @@ public class ListScreen extends HttpServlet {
             out.println (" <td>" + replaceEscapeChar (dto.getJoining_date ()) + "</td>");
             out.println (" <td>" + replaceEscapeChar (dto.getDepartment ()) + "</td>");
             out.println (
-                    "                    <td><button type=\"button\" class=\"edit-button\"><a href=\"../更新画面/更新画面.html\">編集</a></button></td>             ");
+                    "                    <td><button type=\"button\" class=\"edit-button\"><a href=\"./UpdateScreen\">編集</a></button></td>             ");
             out.println (
                     "               </tr>                                                                                                                         ");
 
-        }
+          }
         out.println (
                 "            </tbody>                                                                                                                           ");
 
@@ -263,9 +263,9 @@ public class ListScreen extends HttpServlet {
         out.println (
                 "        <div class=\"transportation\">                                                                                                         ");
         out.println (
-                "            <button type=\"button\"><a href=\"../一覧画面/一覧画面.html\">前へ</a></button>                                                    ");
+                "            <button type=\"button\"><a href=\"./ListScreen\">前へ</a></button>                                                    ");
         out.println (
-                "            <button type=\"button\"><a href=\"../一覧画面/一覧画面.html\">次へ</a></button>                                                    ");
+                "            <button type=\"button\"><a href=\"./ListScreen\">次へ</a></button>                                                    ");
         out.println (
                 "        </div>                                                                                                                                 ");
         out.println (
@@ -277,7 +277,7 @@ public class ListScreen extends HttpServlet {
         // response.sendRedirect("Login");
         // }
         // TODO Auto-generated method stub
-        doGet (request, response);
+        //doGet (request, response);
     }
 
     // TODO Auto-generated method stub

@@ -87,15 +87,31 @@ public class RegistrationDao {
             buf.append("  姓,                  ");
             buf.append("  名,                  ");
             buf.append("  生年月日,            ");
-            buf.append("  入社日,             ");
-            buf.append("  所属部門            ");
+            buf.append("  入社日            ");
             buf.append(") VALUES (            ");
             buf.append("  ?,                  ");
             buf.append("  ?,                  ");
             buf.append("  ?,                  ");
+            buf.append("  ?                  ");
+            buf.append(");                     ");
+
+            buf.append("INSERT INTO 部門マスタ (   ");
+            buf.append("  ID            ");
+            buf.append("  部門名            ");
+            buf.append(") VALUES (            ");
+            buf.append("  ? ,                 ");
+            buf.append("  ?                  ");
+            buf.append(");                     ");
+
+            buf.append("INSERT INTO 所属部門トラン (   ");
+            buf.append("  社員ID,            ");
+            buf.append("  部門ID,            ");
+            buf.append("  所属開始日            ");
+            buf.append(") VALUES (            ");
+            buf.append("  ?,                  ");
             buf.append("  ?,                  ");
             buf.append("  ?                  ");
-            buf.append(")                     ");
+            buf.append(");                     ");
 
             //PreparedStatementオブジェクトを生成＆発行するSQLをセット
             ps = con.prepareStatement(buf.toString());
@@ -105,7 +121,11 @@ public class RegistrationDao {
             ps.setString(       2, dto.getFirst_name()               ); //第2パラメータ
             ps.setString(       3, dto.getBirth_date()               ); //第3パラメータ
             ps.setString(       4, dto.getJoining_date() ); //第4パラメータ
-            ps.setString(    5, dto.getDepartment()           ); //第5パラメータ
+            ps.setInt(    5, dto.getDepartmentID()           ); //第5パラメータ
+            ps.setString(    6, dto.getDepartment()           ); //第6パラメータ
+            ps.setInt(    7, dto.getEmployeeID()           ); //第7パラメータ
+            ps.setInt(    8, dto.getDepartmentID()           ); //第8パラメータ
+            ps.setString(       9, dto.getJoining_date() ); //第9パラメータ
 
 
             //SQL文の実行
@@ -175,7 +195,7 @@ public class RegistrationDao {
      *引数　：なし
      *戻り値：抽出結果（DTOリスト）
      *----------------------------------------------------------------------**/
-    public List<RegistrationDto> doSelect() {
+    public List<RegistrationDto> doSelect(RegistrationDto dto) {
 
         //-------------------------------------------
         //JDBCドライバのロード
@@ -212,23 +232,37 @@ public class RegistrationDao {
             //発行するSQL文の生成（SELECT）
             StringBuffer buf = new StringBuffer();
 
-            buf.append("SELECT a.姓,                       ");
-            buf.append("       a.名,                       ");
-            buf.append("       a.生年月日,                 ");
-            buf.append("        a.入社日,                  ");
-            buf.append("       b.部門名 as 所属部門        ");
-            buf.append("FROM 社員マスタ a,                 ");
-            buf.append("    部門マスタ b,                  ");
-            buf.append("    所属部門トラン c.              ");
-            buf.append("WHERE a.ID= b.ID=c.ID              ");
-
+            buf.append("    SELECT                   ");
+            buf.append("        a.姓,                ");
+            buf.append("        a.名,                ");
+            buf.append("        a.生年月日,          ");
+            buf.append("        a.入社日,            ");
+            buf.append("        b.部門名 AS 所属部門 ");
+            buf.append("    FROM                     ");
+            buf.append("        社員マスタ a          ");
+            buf.append("    INNER JOIN                 ");
+            buf.append("        所属部門トラン c        ");
+            buf.append("    ON                         ");
+            buf.append("        a.ID = c.社員ID         ");
+            buf.append("    INNER JOIN                 ");
+            buf.append("        部門マスタ b            ");
+            buf.append("    ON                         ");
+            buf.append("        c.部門ID = b.ID         ");
+            buf.append("    WHERE                      ");
+            buf.append("        a.ID = 1;               ");
 
             ps = con.prepareStatement(buf.toString());
+
+            //パラメータをセット
+            //rs.setInt(1, dto.getID());
+
+            //SQL文の送信＆戻り値としてResultSet（SQL抽出結果）を取得
             rs = ps.executeQuery();
+
 
             //ResultSetオブジェクトからDTOリストに格納
             while (rs.next()) {
-                RegistrationDto dto = new RegistrationDto();
+                dto = new RegistrationDto();
                 dto.setLast_name(          rs.getString(    "姓"               ) );
                 dto.setFirst_name(       rs.getString(       "名"                ) );
                 dto.setBirth_date(  rs.getString(       "生年月日"                ) );
