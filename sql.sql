@@ -1,5 +1,5 @@
 INSERT INTO 所属部門トラン(
-   所属ID,
+   社員ID,
    部門ID,
    所属開始日
 
