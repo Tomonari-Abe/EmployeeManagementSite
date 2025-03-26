@@ -76,7 +76,6 @@ public class RegistrationScreen extends HttpServlet {
         out.println("        </form>                                                                                                                ");
         out.println("    </body>                                                                                                                    ");
         out.println("    <footer>                                                                                                                   ");
-        out.println("                                                                                                                               ");
         out.println("        <button type=\"button\" class=\"register-button\"><a href=\"./CheckRegistrationScreen\">確認</a></button>      ");
         out.println("    </footer>                                                                                                                  ");
         out.println("</html> "                                                                                                                      );

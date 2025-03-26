@@ -73,7 +73,7 @@ public class UpdateScreen extends HttpServlet {
         out.println("        </form>                                                                                                                   ");
         out.println("    </body>                                                                                                                       ");
         out.println("    <footer>                                                                                                                      ");
-        out.println("        <button type=\"button\" class=\"update-button\"><a href=\"../更新確認画面/更新確認画面.html\">確認</a></button>           ");
+        out.println("        <button type=\"button\" class=\"update-button\"><a href=\"./CheckUpdateScreen\">確認</a></button>           ");
         out.println("        </footer>                                                                                                                 ");
         out.println("</html>                                                                                                                 ");
 
@@ -107,6 +107,8 @@ public class UpdateScreen extends HttpServlet {
 
         return charAfterEscape;
     }
+
+
 
 
 }

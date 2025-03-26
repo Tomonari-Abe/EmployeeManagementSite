@@ -195,7 +195,7 @@ public class RegistrationDao {
      *引数　：なし
      *戻り値：抽出結果（DTOリスト）
      *----------------------------------------------------------------------**/
-    public List<RegistrationDto> doSelect(RegistrationDto dto) {
+    public List<RegistrationDto> doSelect() {
 
         //-------------------------------------------
         //JDBCドライバのロード
@@ -248,8 +248,8 @@ public class RegistrationDao {
             buf.append("        部門マスタ b            ");
             buf.append("    ON                         ");
             buf.append("        c.部門ID = b.ID         ");
-            buf.append("    WHERE                      ");
-            buf.append("        a.ID = 1;               ");
+//            buf.append("    WHERE                      ");
+//            buf.append("        a.ID = 1;               ");
 
             ps = con.prepareStatement(buf.toString());
 
@@ -262,13 +262,15 @@ public class RegistrationDao {
 
             //ResultSetオブジェクトからDTOリストに格納
             while (rs.next()) {
-                dto = new RegistrationDto();
+                RegistrationDto dto = new RegistrationDto();
                 dto.setLast_name(          rs.getString(    "姓"               ) );
                 dto.setFirst_name(       rs.getString(       "名"                ) );
                 dto.setBirth_date(  rs.getString(       "生年月日"                ) );
                 dto.setJoining_date( rs.getString(       "入社日" ) );
                 dto.setDepartment(        rs.getString(    "所属部門"            ) );
+                dtoList.add(dto);
             }
+            
 
         } catch (SQLException e) {
             e.printStackTrace();

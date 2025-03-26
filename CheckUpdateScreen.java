@@ -2,6 +2,8 @@ package work;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -39,7 +41,10 @@ public class CheckUpdateScreen extends HttpServlet {
 
 
         PrintWriter out = response.getWriter();
-
+        List<UpdateDto> list = new ArrayList<UpdateDto> ();
+        UpdateScreen logic = new UpdateScreen ();
+        list = logic.executeSelectUserInfo();
+        
         out.println("<!DOCTYPE html>                                                                                                            ");
         out.println("<html>                                                                                                                     ");
         out.println("    <head>                                                                                                                 ");
@@ -52,7 +57,7 @@ public class CheckUpdateScreen extends HttpServlet {
         out.println("            <table class=\"table\">                                                                                        ");
         out.println("                <tr>                                                                                                       ");
         out.println("                    <td>姓</td>                                                                                            ");
-        out.println("                    <td><input type=\"text\" name=\"last_name\"></td>                                                      ");
+        out.println("                    <td><label>" + replaceEscapeChar (dto.getLast_name ()) + "</label></td>                                                      ");
         out.println("                </tr>                                                                                                      ");
         out.println("                <tr>                                                                                                       ");
         out.println("                    <td>名</td>                                                                                            ");

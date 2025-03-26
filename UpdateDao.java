@@ -85,7 +85,7 @@ public class UpdateDao {
             buf.append("FROM 社員マスタ a,                 ");
             buf.append("    部門マスタ b,                  ");
             buf.append("    所属部門トラン c.              ");
-            buf.append("WHERE a.ID= b.ID=c.ID              ");
+//            buf.append("WHERE a.ID= b.ID=c.ID              ");
 
 
 

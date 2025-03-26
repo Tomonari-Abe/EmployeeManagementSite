@@ -285,7 +285,7 @@ public class ListScreen extends HttpServlet {
 
 
     /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServlsetResponse
      *      response)
      */
     protected void doPost (HttpServletRequest request, HttpServletResponse response)
